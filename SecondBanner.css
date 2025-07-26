@@ -1,0 +1,628 @@
+/* css/SecondBanner.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 0 15px;
+}
+
+/* Header *//*
+header {
+    background-color: #000204cb;
+    color: white;
+    padding: 10px 0;
+}*/
+.header-container {
+    background-color: #000204;
+    max-width: 100%;
+    max-height: 100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+
+.logo img {
+    height: 70px; /* Adjust as needed */
+    width: auto;
+    padding-left: 30px;
+}
+
+.search-bar-container {
+    display: flex;
+    flex-grow: 5;
+    margin: 0 20px;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #fff;
+    max-width: 800px; /* Limit search bar width */
+}
+.search-bar-container input{
+    flex-grow: 1;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    outline: none;
+
+}
+
+
+.search-button {
+    background-color: #f8f8f8;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button svg {
+    fill: #333;
+}
+
+
+.search-results {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+    /*box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);*/
+    display: none; /* Hidden by default, shown when results are available */
+}
+
+.search-results p {
+    font-size: 1.1em;
+    color: #555;
+}
+.search-button {
+  width: 50px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  padding-left: 10px;
+  cursor: pointer;
+}
+.cart-icon {
+        cursor: pointer;
+        font-size: 1.2rem;
+        padding-right: 5px;
+        height: 50px;
+        width: 50px;
+        text-decoration: none;
+        margin-top: 20px;
+    }
+.cart-icon a{
+        text-decoration: none;
+    }
+.count {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 1px 6px;
+  font-size: 12px;
+  margin: 0 5px;
+}
+.shopping {
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding-right: 20px;
+    margin-top: 10px;
+    color: #eee;
+}
+.shopping a{
+    text-decoration: none;
+}
+
+/* Banner Section (if you want to include it, though the request focuses on products) */
+/*.banner {
+    background-color: #2b70f0; /* Blue from your banner image 
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden; /* To handle image positioning if needed 
+    height: 300px; /* Adjust height as needed 
+}
+
+.banner .content {
+    z-index: 1; /* Ensure text is above any background images 
+}
+
+.banner h2 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: #ffeb3b; /* Yellow from your banner 
+}
+
+.banner p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.banner .shop-now-btn {
+    display: inline-block;
+    background-color: #ffeb3b; /* Yellow from your banner 
+    color: #333;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.banner .shop-now-btn:hover {
+    background-color: #ffe000;
+}*/
+.banner-slide {
+    position: relative;
+    width: 95%;
+    height: 400px; /* Adjust as needed */
+    margin-top: 50px;
+    margin-left: 40px;
+    margin-right: 5px;
+    border-radius: 10px;
+    padding: 50px 0;
+    display: flex;
+}
+/*
+.banner-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: transform 0.5s ease-in-out;
+}
+
+.banner-slide.active {
+    opacity: 1;
+    z-index: 1; /* Bring active slide to front 
+}*/
+
+.banner-slide img {
+    position: absolute;
+    right: 0; /* Position the image to the right as in the example */
+    height: 80%; /* Adjust size as needed */
+    object-fit: contain; /* Or cover, depending on desired effect*/ 
+    z-index: 2; /* Ensure image is above content if content needs to be behind it*/ 
+}
+
+.banner-content {
+    position: absolute;
+    left: 10%; /* Adjust positioning*/ 
+    color: white;
+    text-align: left;
+    z-index: 3; /* Ensure text is above image */
+}
+
+.banner-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: yellow; /* As seen in the image */
+    font-family: Arial, sans-serif;
+    margin-top: 60px;
+    
+}
+
+.banner-content h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    font: Arial, sans-serif;
+    color: white;
+    margin-top: 80px;
+    margin-left: 70px;
+}
+
+
+.shop-now-button {
+    background-color: yellow;
+    color: black;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-family: Arial, sans-serif;
+    margin-top: 50px;
+    margin-left: 130px;
+   
+    
+}
+
+.shop-now-button:hover {
+    background-color: #ffd700;
+}
+
+/* Product Listing */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.product-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+}
+
+.product-item img {
+    max-width: 100%;
+    height: 250px; /* Fixed height for consistency */
+    object-fit: cover; /* Crop images to fit */
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.product-item h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #0056b3;
+}
+
+.product-item .price {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.product-item .original-price {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 5px;
+}
+
+.product-item .discount-price {
+    color: #d9534f;
+    font-weight: bold;
+}
+
+.product-item .discount-tag {
+    background-color: #d9534f; /* Red for discount */
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.product-item .view-details-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.product-item .view-details-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Product Details Page */
+.product-detail {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-detail-image {
+    flex: 1;
+    min-width: 300px;
+    padding-right: 30px;
+}
+
+.product-detail-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-detail-info {
+    flex: 2;
+    min-width: 300px;
+}
+
+.product-detail-info h2 {
+    font-size: 2.5em;
+    margin-top: 0;
+    color: #0056b3;
+}
+
+.product-detail-info .price {
+    font-size: 1.8em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.product-detail-info .original-price {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 10px;
+}
+
+.product-detail-info .discount-price {
+    color: #d9534f;
+    font-weight: bold;
+}
+
+.product-detail-info .discount-tag {
+    background-color: #d9534f;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.product-detail-info p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.product-detail-info .add-to-cart-btn,
+.product-detail-info .buy-now-btn {
+    background-color: #28a745; /* Green for add to cart/buy now */
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-right: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.product-detail-info .add-to-cart-btn:hover,
+.product-detail-info .buy-now-btn:hover {
+    background-color: #218838;
+}
+/* Product Detail Page Image Zoom */
+.product-detail-image {
+    position: relative;
+    overflow: hidden; /* Important for hiding the scaled part of the image */
+    cursor: zoom-in;
+    border-radius: 8px;
+}
+
+.product-detail-image img {
+    display: block; /* Remove extra space below image */
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for zoom */
+    transform-origin: center center; /* Zoom from the center */
+}
+
+.product-detail-image img.zoomed {
+    transform: scale(1.8); /* Adjust zoom level as needed */
+}
+
+/* Styles for size/color selectors and quantity input */
+.product-options {
+    margin-bottom: 20px;
+}
+
+.product-options label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-options select,
+.product-options input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.product-options input[type="number"] {
+    max-width: 120px; /* Limit width for quantity */
+}
+
+/* Checkout Page */
+
+
+.checkout-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-section h2 {
+    color: #0056b3;
+    margin-bottom: 25px;
+}
+
+.checkout-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.checkout-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.checkout-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.checkout-item-details {
+    flex-grow: 1;
+}
+
+.checkout-item-details h3 {
+    margin: 0 0 5px;
+    font-size: 1.3em;
+    color: #333;
+}
+
+.checkout-item-details p {
+    margin: 0;
+    color: #555;
+}
+
+.checkout-total {
+    text-align: right;
+    margin-top: 30px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #0056b3;
+}
+
+.checkout-total span {
+    color: #d9534f;
+    margin-left: 10px;
+}
+
+.checkout-form {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.checkout-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+
+.checkout-form input[type="text"],
+.checkout-form input[type="email"],
+.checkout-form textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.checkout-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.checkout-form .buy-now-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-form .buy-now-btn:hover {
+    background-color: #218838;
+}
+
+
+/* Forms (Add/Edit Product) */
+.product-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.product-form input[type="text"],
+.product-form input[type="number"],
+.product-form textarea,
+.product-form input[type="file"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.product-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.product-form button {
+    background-color: #000301;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-form button:hover {
+    background-color: #09052d;
+}
+
+
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    margin-top: 30px;
+}

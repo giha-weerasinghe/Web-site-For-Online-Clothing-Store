@@ -1,0 +1,22 @@
+<?php
+// header.php
+
+// Ensure session_start() is called at the very beginning of the main script
+// that includes this header, or at the top of this header.php itself
+// if it's always included early.
+// Example: if your main page starts with:
+// <?php session_start(); include 'header.php'; ? >
+// then you don't need it here. But if header.php might be the first
+// PHP code to run, include it here:
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+                // Check if the user is logged in by checking a session variable
+                if (isset($_SESSION['user_id'])) { // Assuming 'user_id' is set upon login
+                    // User is logged in, display "My Account"
+                    echo '<a href="dashboard.php"><strong>My account</strong></a>';
+        } else {
+            echo '<a href="login.html"></a>'; // Link to login/registration page
+                }
+                ?>

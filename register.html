@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="Register/style.css">
+    <link rel="stylesheet" href="footer/style.css">
+
+</head>
+<body>
+        <nav class="breadcrumbs">
+            <span><a href="Home.html">Home</a></span> &gt; <span>Register</span>
+        </nav> 
+   
+     <main>
+        <div class="form-container">
+            <h2>Create Your Account</h2>
+            <form action="register.php" method="POST" onsubmit="return validateRegisterForm()">
+                <label for="firstName">First Name</label>
+        <input type="text" name="username" placeholder="Username" required /><br>
+        <label for="email">Email</label>
+        <input type="email" name="email" placeholder="Email" required /><br>
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="Password" required /><br>
+        <button type="submit">Register</button>
+    </form>               
+                 <h3>Already have an account? <a href="login.html">Login here</a></h3>
+                 </div>
+
+    </main>
+   
+
+        
+    <footer>
+        <div class="footer-sections">
+        <div class="footer-container">    
+      <h3>Customer Care</h3>
+      <ul>
+        <li><a href="Help Center Page.html">Help Center</a></li>
+        <li><a href="Home.html">How to Buy</a></li>
+        <li><a href="Shipping_policy.html">Shipping Policy</a></li>
+        <li><a href="Return_&_Exchange.html">Returns & Exchange Policy</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>ZAYNO</h3>
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="About.html">About US</a></li>
+        <li><a href="Where_we_are.html">Where we are?</a></li>       
+        <li><a href="SizeChart.html">Size Guide</a></li>
+        <li><a href="Terms_of_service.html">Terms Of Service</a></li>
+        <li><a href="Privacy_Policy.html">Privacy Policy</a></li>
+        <li><a href="chat.html">Chat With Us</a></li>
+      </ul>
+    </div>
+    
+            <div class="contact" id="contact-info">
+                <h3>Contact Information</h3>
+                <p><img src="images/email.png" alt="email" /> support@onlineshop.com</p>
+                <p><img src="images/phone.png" alt="phone" /> +94 (76) 3951645</p>
+                <p><img src="images/address.png" alt="address" />173 Niriella Rd, Karawita, Uda Karawita</p>
+            </div>
+            <div class="social-media">
+                <h3>Follow Us</h3>
+                <a href="https://facebook.com" target="_blank" rel="noopener">
+                    <img src="images/facebook.webp" alt="Facebook" />
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener">
+                    <img src="images/twitter.webp" alt="Twitter" />
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener">
+                    <img src="images/instergame.webp" alt="Instagram" />
+                </a>
+                <a href="https://whatsapp.com" target="_blank" rel="noopener">
+                    <img src="images/whatsapp.png" alt="Instagram" />
+                </a>
+            </div>
+        </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 [ZAYNO] All rights reserved.</p>
+        </div>
+    </footer>
+   
+     <script src="Register/script.js"></script>
+
+
+</body>
+</html>

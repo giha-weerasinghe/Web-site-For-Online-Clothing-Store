@@ -1,0 +1,630 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ZAYNO</title>
+    <link rel="stylesheet" href="Home/Home.css">
+    <link rel="stylesheet" href="Banner/Style.css">
+    <link rel="stylesheet" href="Header/style.css">
+    <link rel="stylesheet" href="Categories/style.css">
+    <link rel="stylesheet" href="Product/style.css">
+    <link rel="stylesheet" href="Home/brand.css">
+    <link rel="stylesheet" href="footer/style.css">
+    <link rel="stylesheet" href="Home/Home_style.css">
+
+     <style>
+        /* General body styling for demonstration */
+        /* Container for multiple columns */
+        .columns-container {
+            display: flex;
+            flex-wrap: wrap; /* Allows columns to wrap to the next line on smaller screens */
+            justify-content: center; /* Centers the columns horizontally */
+            gap: 20px; /* Space between the columns */
+            width: 100%; /* Take full width of the body's content area */
+            /*max-width: 1200px; /* Max width for the container */
+            margin: 50px;
+            font-family: 'Inter', sans-serif; /* Using Inter font as per guidelines */
+            background-color: #f0f0f0; /* Light background for the overall page */            justify-content: center;
+            align-items: flex-start; /* Align columns to the top */
+            min-height: 80vh;
+            padding: 20px; /* Padding around the entire content */
+            box-sizing: border-box;
+            margin-left: 5px;
+        }
+
+        /* Styling for an individual product category column */
+        .product-category-column {
+            flex: 1 1 calc(50% - 20px); /* Allows columns to be roughly half width, adjusting for gap */
+            max-width: 400px; /* Maximum width for each column */
+            min-width: 300px; /* Minimum width before columns stack */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+            background-color: #D6A69A; /* Light reddish-brown background color from the image */
+            padding: 20px; /* Padding inside the column, around the white border content */
+            position: relative; /* Needed for positioning the text overlay absolutely */
+            overflow: hidden; /* Ensures content stays within rounded borders */
+            border-radius: 10px; /* Rounded corners for the main column container */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+
+        /* Inner content area with the white border */
+        .column-content {
+            position: relative; /* Needed for absolute positioning of the image and text overlay */
+            border: 2px solid white; /* White border as seen in the image */
+            padding: 10px; /* Padding inside the white border */
+            border-radius: 8px; /* Slightly smaller rounded corners for the inner content */
+            overflow: hidden; /* Ensure image corners are clipped by border-radius */
+        }
+
+        /* Styling for the product image within the column */
+        .column-image {
+            width: 100%; /* Image takes up full width of its container */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Removes extra space below the image */
+            border-radius: 5px; /* Slightly rounded corners for the image itself */
+        }
+
+        /* Styling for the text overlay (category title and button) */
+        .text-overlay {
+            position: absolute; /* Positioned relative to .column-content */
+            bottom: 20px; /* Distance from the bottom of the column-content */
+            left: 20px; /* Distance from the left of the column-content */
+            color: white; /* White text color */
+            text-align: left; /* Align text to the left */
+            font-family: 'Inter', sans-serif; /* Consistent font */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Subtle text shadow for readability */
+        }
+
+        /* Styling for the category title (e.g., CASUAL SHIRTS) */
+        .text-overlay h2 {
+            margin: 0 0 10px 0; /* No top margin, 10px bottom margin */
+            font-size: 2em; /* Adjust font size as needed */
+            font-weight: bold; /* Bold font weight */
+            line-height: 1.2;
+        }
+
+        /* Styling for the "View Collection" button */
+        .view-collection-button {
+            display: inline-block; /* Allows padding and specific sizing */
+            padding: 10px 20px; /* Padding inside the button */
+            background-color: transparent; /* Transparent background */
+            color: white; /* White text color */
+            text-decoration: none; /* Removes underline from link */
+            border: 2px solid white; /* White border for the button */
+            border-radius: 5px; /* Rounded corners for the button */
+            font-size: 0.9em; /* Font size relative to parent */
+            font-weight: bold; /* Bold text */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+            cursor: pointer; /* Indicate it's clickable */
+        }
+
+        /* Hover effect for the "View Collection" button */
+        .view-collection-button:hover {
+            background-color: white; /* Background becomes white on hover */
+            color: #D6A69A; /* Text color changes to the column's background color */
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 768px) {
+            .product-category-column {
+                flex: 1 1 90%; /* On smaller screens, columns take up more width and stack */
+                margin: 0; /* Remove individual column margins as gap handles spacing */
+                padding: 15px; /* Slightly less padding on small screens */
+            }
+
+            .columns-container {
+                flex-direction: column; /* Stack columns vertically on small screens */
+                align-items: center; /* Center items when stacked */
+                padding: 15px; /* Reduce overall container padding */
+            }
+
+            .text-overlay {
+                bottom: 15px;
+                left: 15px;
+            }
+
+            .text-overlay h2 {
+                font-size: 1.5em; /* Smaller font size for titles on small screens */
+            }
+
+            .view-collection-button {
+                font-size: 0.8em; /* Smaller font size for button */
+                padding: 8px 15px; /* Smaller padding for button */
+            }
+        }
+        
+/*Video Column Section */
+.video-column-section {
+    background-color: #f0f8ff; /* Light blue background for video section */
+    padding: 0 0;
+    margin: 0;
+}
+/*
+.video-intro {
+    text-align: center;
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid for videos 
+    gap: 30px;
+}
+
+.video-item {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.video-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    /* 16:9 aspect ratio (height / width * 100) */
+  /*  padding-bottom: 56.25%; /* For a 16:9 aspect ratio */
+  /*  background-color: #000; /* Black background while loading/for poster 
+}
+
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover; /* Ensures video fills the wrapper 
+}
+
+
+
+/* Responsive Adjustments 
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links li {
+        margin: 8px 15px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.8em;
+    }
+
+    .hero-section p {
+        font-size: 1.1em;
+    }
+
+    section h2 {
+        font-size: 2em;
+    }
+
+    .product-grid,
+    .video-container {
+        grid-template-columns: 1fr; /* Stack items vertically on smaller screens 
+    }
+
+    .product-card img {
+        height: 300px;
+    }
+
+    .newsletter-form input {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 60px 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.2em;
+    }
+
+    .hero-section p {
+        font-size: 1em;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    section h2 {
+        font-size: 1.8em;
+    }
+}*/
+
+    </style>
+   
+    
+
+</head>
+<body>
+ <nav>        
+        <div class="container">
+        <div class="logo">
+             <a href="Home.html"><img src="images/logo1.png" alt="Store Logo" /></a>
+        </div>
+       
+            <div class="user-actions">
+            <div class="account">
+                 <a href="register.html">Login / Signup</a><br />
+                 <a href="dashboard.php"> <strong>My account</strong></a>
+        
+            </div>
+            <div class="cart-icon" id="cart-icon">
+                <span class="count">0</span>
+                     <a href="SecondBanner_checkout.php"> 🛒 </a>
+                     </div>
+                     
+            </div>
+            </div>
+ </nav> 
+    
+      
+
+<div class="banner-container">
+    <div class="banner-slide active" style="background: linear-gradient(to right, #ff6600, #ffcc00);">
+        <img src="images/b1.png" alt="Global Deals Banner 1">
+        <div class="banner-content">
+            <h1>GLOBAL DEALS</h1>
+            <h3>AT THE BEST PRICES</h2>
+            <a href="firstBanner_products.php"><button class="shop-now-button">Shop Now</button></a>
+        </div>
+    </div>
+    <div class="banner-slide" style="background: linear-gradient(to right, #0044cc, #66ccff);">
+        <img src="images/b2.png" alt="Global Deals Banner 2">
+        <div class="banner-content">
+            <h1>MORE DEALS</h1>
+            <h3>DON'T MISS OUT</h2>
+            <a href="SecondBanner_index.php"><button class="shop-now-button">Shop Now</button></a>
+        </div>
+    </div>
+    <div class="banner-slide" style="background: linear-gradient(to right, #0044cc, #66ccff);">
+        <img src="images/b3.png" alt="Global Deals Banner 3">
+        <div class="banner-content">
+            <h1>EXCLUSIVE OFFERS</h1>
+            <h3>LIMITED TIME</h2>
+            <a href="Third_Banner.html"><button class="shop-now-button">Shop Now</button></a>
+        </div>
+    </div>
+    <div class="banner-nav-left">&lt;</div>
+    <div class="banner-nav-right">&gt;</div>
+    <div class="banner-pagination">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</div>
+<section class="categories-section">
+    <h2>Shop By category</h2>
+    <div class="category-grid">
+        <a href="Ladies.html" class="category-item">
+            <div class="category-image">
+                <img src="images/b4.webp" alt="women">
+            </div>
+            <p class="category-title"><b>WOMEN</b></p>
+        </a>
+        <a href="#" class="category-item">
+            <div class="category-image">
+                <img src="images/Mens cloths/1.webp" alt="mens">
+            </div>
+            <p class="category-title"><b>MEN</b></p>
+        </a>
+        <a href="#" class="category-item">
+            <div class="category-image">
+                <img src="images/childrens cloths/22.jpg" alt="kids">
+            </div>
+            <p class="category-title"><b>KID'S</b></p>
+        </a>
+        <a href="category.php?name=literature" class="category-item">
+            <div class="category-image">
+                <img src="images/Shoes/5.webp" alt="Literature">
+            </div>
+            <p class="category-title"><b>SHOES</b></p>
+        </a>
+        <a href="category.php?name=literature" class="category-item">
+            <div class="category-image">
+                <img src="images/Toys/OIP.jpeg" alt="Literature">
+            </div>
+            <p class="category-title"><b>TOYS</b></p>
+        </a>
+        <a href="category.php?name=literature" class="category-item">
+            <div class="category-image">
+                <img src="images/Bags/b1.png" alt="Literature">
+            </div>
+            <p class="category-title"><b>BAGS</b></p>
+        </a>       
+        </div>
+</section>
+
+<section class="benefits-section">
+    <div class="benefit-item">
+       <img src="images/icon1 (1).png" alt="store Icon" class="icon-img"> 
+       <h3>Comprehensive selection</h3>
+        <p>Shop online from your favourite<br>department store brand</p>
+    </div>
+    <div class="benefit-item">
+        <img src="images/icon1 (2).png" alt="delivery Icon" class="icon-img">
+        <h3>All-island delivery</h3>
+        <p>Delivery within 3-4 working<br>days</p>
+    </div>
+    <div class="benefit-item">
+        <img src="images/icon1 (3).png" alt="not-support Icon" class="icon-img">
+         <h3>Top-notch support</h3>
+        <p>Get support from our team via<br>phone, social media and email</p>
+    </div>
+    <div class="benefit-item">
+        <img src="images/icon1 (4).png" alt="exchange Icon" class="icon-img">
+         <h3>Easy exchange</h3>
+        <p>Exchange from any of our<br>stores or complete online</p>
+    </div>
+</section>
+
+
+<section class="video-column-section">
+          
+            <div class="video-container">
+                <div class="video-item">
+                    <div class="video-wrapper">
+                        <!-- Use a placeholder video. In a real scenario, replace with your video URL -->
+                        <video controls poster="https://placehold.co/600x350/B0E0E6/000000?text=Video+Thumbnail+1">
+                            <source src="images/brands.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                </div>
+</section>
+
+
+
+
+
+<section class="brands-section">
+        <div class="brands-header">
+            <h2>Exclusive brands</h2>
+            <a href="All Brands/index.php" class="view-all">View all</a>
+        </div>
+        <div class="brands-slider-container">
+            <div class="brands-slider">
+                <a href="All Brands/index.php?brand=Hustle" class="brand-item">
+                    <div class="brand-logo-wrapper">
+                        <img src="images/Brand's Logos/hustle-logo-600x600.webp" alt="Hustle Logo">
+                    </div>
+                    <span class="brand-name">Hustle <i class="fas fa-chevron-right brand-arrow">&#8594;</i></span>
+                </a>
+
+                <a href="All Brands/index.php?brand=Modano" class="brand-item">
+                    <div class="brand-logo-wrapper">
+                        <img src="images/Brand's Logos/Modano.avif" alt="Modano Logo">
+                    </div>
+                    <span class="brand-name">Modano <i class="fas fa-chevron-right brand-arrow">&#8594;</i></span>
+                </a>
+
+                <a href="All Brands/index.php?brand=King Street" class="brand-item">
+                    <div class="brand-logo-wrapper">
+                        <img src="images/Brand's Logos/KingStreet.avif" alt="King Street Logo">
+                    </div>
+                    <span class="brand-name">King Street <i class="fas fa-chevron-right brand-arrow">&#8594;</i></span>
+                </a>
+
+                <a href="All Brands/index.php?brand=Envogue" class="brand-item">
+                    <div class="brand-logo-wrapper">
+                        <img src="images/Brand's Logos/EnV.avif" alt="Envogue Logo">
+                    </div>
+                    <span class="brand-name">Envogue <i class="fas fa-chevron-right brand-arrow">&#8594;</i></span>
+                </a>
+
+                <a href="All Brands/index.php?brand=Hada" class="brand-item">
+                    <div class="brand-logo-wrapper">
+                        <img src="images/Brand's Logos/Hada.avif" alt="Hada Logo">
+                    </div>
+                    <span class="brand-name">Hada <i class="fas fa-chevron-right brand-arrow">&#8594;</i></span>
+                </a>
+
+                <a href="All Brands/index.php?brand=MUN" class="brand-item">
+                    <div class="brand-logo-wrapper">
+                        <img src="images/Brand's Logos/MUN.avif" alt="MUN Logo">
+                    </div>
+                    <span class="brand-name">MUN <i class="fas fa-chevron-right brand-arrow">&#8594;</i></span>
+                </a>
+
+                <a href="All Brands/index.php?brand=Curvy Clothing" class="brand-item hidden">
+                    <div class="brand-logo-wrapper">
+                        <img src="images/Brand's Logos/Curvy.avif" alt="Brand 7 Logo">
+                    </div>
+                    <span class="brand-name">Curvy Clothing<i class="fas fa-chevron-right brand-arrow">&#8594;</i></span>
+                </a>
+
+                <a href="All Brands/index.php?brand=Bigg Boss" class="brand-item hidden" >
+                    <div class="brand-logo-wrapper" >
+                        <img src="images/Brand's Logos/boss-removebg-preview.png" alt="Brand 8 Logo">
+                    </div>
+                    <span class="brand-name">Bigg Boss<i class="fas fa-chevron-right brand-arrow">&#8594;</i></span>
+                </a>
+            </div>
+            <button class="slider-arrow left-arrow"><span class="arrow-entity"> &lt;</span></button>
+
+            <button class="slider-arrow right-arrow"><span class="arrow-entity">&gt;</span></button>
+        </div>
+    </section>
+
+    <div class="columns-container">
+        <!-- Example Column 1: Casual Shirts -->
+        <div class="product-category-column">
+            <div class="column-content">
+                <!--
+                    Placeholder image:
+                    - Replaced with a specific image from the prompt to match the visual style.
+                    - The image dimensions (400x500) are illustrative; replace with actual image sizes.
+                    - The background and text color of the placeholder match the column's theme.
+                -->
+                <img src="images/A1.jpeg" alt="Casual Shirts Collection" class="column-image"
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x500/cccccc/333333?text=Image+Not+Found';">
+                <div class="text-overlay">
+                    <h2>NEW ARRIVALS</h2>
+                    <a href="#casual-shirts" class="view-collection-button">VIEW COLLECTION</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Example Column 2: Kids Collection -->
+        <div class="product-category-column">
+            <div class="column-content">
+                <img src="images/A2.jpeg" alt="Kids Collection" class="column-image"
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x500/cccccc/333333?text=Image+Not+Found';">
+                <div class="text-overlay">
+                    <h2>NEW ARRIVALS</h2>
+                    <a href="#kids" class="view-collection-button">VIEW COLLECTION</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- You can add more columns by duplicating the 'product-category-column' div -->
+        <!-- Example Column 3: New Arrivals -->
+        <div class="product-category-column">
+            <div class="column-content">
+                <img src="images/A3.jpeg" alt="New Arrivals" class="column-image"
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x500/cccccc/333333?text=Image+Not+Found';">
+                <div class="text-overlay">
+                    <h2>NEW ARRIVALS</h2>
+                    <a href="#new-arrivals" class="view-collection-button">VIEW COLLECTION</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-sections">
+        <div class="footer-container">    
+      <h3>Customer Care</h3>
+      <ul>
+        <li><a href="Help Center Page.html">Help Center</a></li>
+        <li><a href="Home.html">How to Buy</a></li>
+        <li><a href="Shipping_policy.html">Shipping Policy</a></li>
+        <li><a href="Return_&_Exchange.html">Returns & Exchange Policy</a></li>
+        <li><a href="Contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>ZAYNO</h3>
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="About.html">About US</a></li>
+        <li><a href="Where_we_are.html">Where we are?</a></li>       
+        <li><a href="SizeChart.html">Size Guide</a></li>
+        <li><a href="Terms_of_service.html">Terms Of Service</a></li>
+        <li><a href="Privacy_Policy.html">Privacy Policy</a></li>
+        <li><a href="chat.html">Chat With Us</a></li>
+      </ul>
+    </div>
+    
+            <div class="contact" id="contact-info">
+                <h3>Contact Information</h3>
+                <p><img src="images/email.png" alt="email" /> support@zaynoonlineshop.com</p>
+                <p><img src="images/phone.png" alt="phone" /> +94 (76) 3951645</p>
+                <p><img src="images/address.png" alt="address" /> Palawela Rd , Rathnapura , Sri Lanka</p>
+            </div>
+            <div class="social-media">
+                <h3>Follow Us</h3>
+                <a href="https://facebook.com" target="_blank" rel="noopener">
+                    <img src="images/facebook.webp" alt="Facebook" />
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener">
+                    <img src="images/twitter.webp" alt="Twitter" />
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener">
+                    <img src="images/instergame.webp" alt="Instagram" />
+                </a>
+                <a href="https://whatsapp.com" target="_blank" rel="noopener">
+                    <img src="images/whatsapp.png" alt="Instagram" />
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 [ZAYNO] All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // This JavaScript file can be used for interactive elements on your home page.
+    // For the video column, basic HTML5 video controls are usually sufficient.
+    // However, you could add custom controls, analytics, or auto-play features here.
+
+    // Example: A simple logging for video play (requires user interaction to play)
+    const videos = document.querySelectorAll('.video-container video');
+
+    videos.forEach(video => {
+        // වීඩියෝව ස්වයංක්‍රීයව වාදනය වීමට සලස්වන්න
+        video.autoplay = true;
+        // වීඩියෝව නැවත නැවත වාදනය වීමට සලස්වන්න
+        video.loop = true;
+        // වීඩියෝව ශබ්ද රහිතව වාදනය වීමට සලස්වන්න (ස්වයංක්‍රීයව වාදනය කිරීමට මෙය වැදගත් වේ)
+        video.muted = true;
+        // වීඩියෝ පාලනයන් සඟවන්න (play බොත්තම, ස්පීකර්, play line)
+        video.removeAttribute('controls');
+
+        // වීඩියෝ වාදනය වීමට පටන් ගත් විට (මෙය අවශ්‍ය නොවනු ඇත, මන්ද එය ස්වයංක්‍රීයව වාදනය වේ)
+        video.addEventListener('play', () => {
+            console.log(`Video '${video.parentNode.previousElementSibling.textContent}' started playing.`);
+            // ඔබට මෙහි analytics සේවාවක් වෙත මෙම event යැවිය හැක.
+        });
+
+        // වීඩියෝව pause කල විට (මෙය අවශ්‍ය නොවනු ඇත, මන්ද එය නොනවත්වා වාදනය වේ)
+        video.addEventListener('pause', () => {
+            console.log(`Video '${video.parentNode.previousElementSibling.textContent}' paused.`);
+        });
+
+        // වීඩියෝව අවසන් වූ විට (මෙය අවශ්‍ය නොවනු ඇත, මන්ද එය නැවත නැවත වාදනය වේ)
+        video.addEventListener('ended', () => {
+            console.log(`Video '${video.parentNode.previousElementSibling.textContent}' ended.`);
+        });
+    });
+      // Example: Smooth scrolling for navigation links (if you implement anchor links)
+    document.querySelectorAll('.nav-links a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            // Prevent default hash behavior if it's an internal anchor
+            if (this.hash !== '' && document.querySelector(this.hash)) {
+                e.preventDefault();
+                document.querySelector(this.hash).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+})
+    </script>
+    <script src="Banner/script.js"></script>
+    <script src="Categories/script.js"></script>
+    <script src="Product/script.js"></script>
+    <script src="Home/brand.js"></script>
+</body>
+</html>

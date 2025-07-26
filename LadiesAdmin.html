@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Ladies Fashion</title>
+    <link rel="stylesheet" href="Ladiesstyle.css">
+</head>
+<body>
+    
+        <header>
+            <h1>Ladies Fashion Admin Panel</h1>
+        </header>
+        <nav>
+            <a href="AdminHome.html">Home</a>
+            <a href="Ladies.html">View Store</a>
+            <a href="LadiesAdmin.html">Admin Panel</a>
+        </nav>
+
+       
+
+        <main>
+            <div id="messageBox" class="message-box" style="display: none;"></div>
+
+            <section class="admin-section" id="productManagement">
+                <h2>Product Management</h2>
+                <form id="productForm" class="admin-form">
+                    <input type="hidden" id="productId" value="">
+
+                    <label for="productName">Product Name:</label>
+                    <input type="text" id="productName" required>
+
+                    <label for="productDescription">Description:</label>
+                    <textarea id="productDescription" rows="3"></textarea>
+
+                    <label for="productPrice">Price:</label>
+                    <input type="number" id="productPrice" step="0.01" min="0" required>
+
+                    <label for="productCategory">Category:</label>
+                    <input type="text" id="productCategory">
+
+                    <label for="productType">Product Type:</label>
+                    <input type="text" id="productType">
+
+                    <label for="productSizeOptions">Size Options (comma-separated, e.g., S,M,L):</label>
+                    <input type="text" id="productSizeOptions">
+
+                    <label for="productColorOptions">Color Options (comma-separated, e.g., Red,Blue):</label>
+                    <input type="text" id="productColorOptions">
+
+                    <label for="productImageUrl">Image URL:</label>
+                    <input type="text" id="productImageUrl">
+
+                    <button type="submit" id="saveProductButton">Add Product</button>
+                    <button type="button" id="clearFormButton">Clear Form</button>
+                </form>
+
+                <h3>Existing Products</h3>
+                <table class="product-list-admin">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Type</th>
+                            <th>Sizes</th>
+                            <th>Colors</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTableBody">
+                        <!-- Products will be loaded here by JavaScript -->
+                        <tr><td colspan="8">Loading products...</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="admin-section" id="orderManagement">
+                <h2>Order Management</h2>
+                <table class="order-list-admin">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Product</th>
+                            <th>Size</th>
+                            <th>Color</th>
+                            <th>Qty</th>
+                            <th>Total Price</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTableBody">
+                        <!-- Orders will be loaded here by JavaScript -->
+                        <tr><td colspan="9">Loading orders...</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/LadiesAdmin.js"></script>
+</body>
+</html>

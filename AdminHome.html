@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | ZAYNO</title>
+    </head>
+    <style>
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.dashboard-header {
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.logo-icon {
+    margin-right: 8px;
+    color: #007bff;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-right: 45px;
+}
+
+.username {
+    margin-right: 35px;
+    font-weight: bold;
+}
+
+.logout-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}
+
+.dashboard-nav {
+    background-color: #343a40;
+    color: #fff;
+    width: 300px;
+    padding-top: 80px; /* Adjust for fixed header */
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    overflow-y: auto;
+}
+
+.dashboard-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dashboard-nav li a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #f8f9fa;
+    transition: background-color 0.3s ease;
+    border-left: 5px solid transparent;
+}
+
+.dashboard-nav li a i {
+    margin-right: 10px;
+}
+
+.dashboard-nav li a:hover {
+    background-color: #495057;
+    border-left-color: #007bff;
+}
+
+.dashboard-content {
+    flex-grow: 1;
+    padding: 20px;
+    padding-top: 100px; /* Adjust for fixed header */
+    margin-left: 250px; /* Adjust for sidebar width */
+}
+
+.dashboard-section {
+    background-color: #fff;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Initially hide all sections */
+}
+
+.dashboard-section.active {
+    display: block;
+}
+
+.dashboard-section h2 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-left: 10px;
+}
+
+.dashboard-section p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+.placeholder {
+    background-color: #f9f9f9;
+    border: 1px dashed #ccc;
+    padding: 40px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    border-radius: 5px;
+    text-align: center;
+    color: #999;
+    font-style: italic;
+}
+.placeholder a{
+        text-decoration: none;
+
+}
+
+.dashboard-footer {
+    background-color: #343a40;
+    color: #f8f9fa;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 250px); /* Adjust for sidebar width */
+    margin-left: 250px;
+    z-index: 99;
+}
+    </style>
+
+<body>
+ 
+ <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="logo">
+                <span class="logo-icon">⚙️</span> Admin Panel
+            </div>
+            <div class="user-info">
+                <span class="username" id="admin-username">Admin User</span>
+                <a href="AdminLogout.php" class="logout-button">Logout</a>
+            </div>
+        </header>
+
+        <nav class="dashboard-nav">
+            <ul>
+                <li class="nav-item">
+                    <a href="#" data-section="products"><i class="fas fa-tags"></i> Manage Branded Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" data-section="categories"><i class="fas fa-list-alt"></i> Manage Product Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" data-section="discounted-products"><i class="fas fa-percent"></i> Manage Discounted Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" data-section="conversations"><i class="fas fa-comments"></i> Manage Conversations</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" data-section="users"><i class="fas fa-users"></i> Manage Users</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" data-section="reviews"><i class="fas fa-star"></i> Review Views</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" data-section="orders"><i class="fas fa-shopping-cart"></i> View Orders</a>
+                </li>
+                </ul>
+        </nav>
+
+        <main class="dashboard-content">
+            <section id="products-section" class="dashboard-section active">
+                <h2><i class="fas fa-tags"></i> Manage Branded Products</h2>
+                <p>Here you can add, edit, and manage the branded products available in ZAYNO.</p>
+                <div class="placeholder"><a href="All Brands/admin.php"> management interface will go here.</a></div>
+            </section>
+
+            <section id="categories-section" class="dashboard-section">
+                <h2><i class="fas fa-list-alt"></i> Manage Product Categories</h2>
+                <p>Organize products into relevant categories for better navigation and customer experience.</p>
+                <div class="placeholder"><a href="LadiesAdmin.html">Ladies Products</a></div>
+            </section>
+
+            <section id="discounted-products-section" class="dashboard-section">
+                <h2><i class="fas fa-percent"></i> Manage Discounted Products</h2>
+                <p>Control product discounts, special offers, and promotional pricing here.</p>
+                <div class="placeholder"><a href="firstBanner_admin.php">Global Deals</a></div>
+                <div class="placeholder"><a href="SecondBanner_admin.php">MORE DEALS</a></div>
+                <div class="placeholder">EXCLUSIVE OFFERS</div>
+            </section>
+
+            <section id="conversations-section" class="dashboard-section">
+                <h2><i class="fas fa-comments"></i> Manage Conversations</h2>
+                <p>View and respond to customer inquiries and messages.</p>
+                <div class="placeholder"><a href="Admin/admin.html">Conversation management interface will go here.<a></div>
+            </section>
+
+            <section id="users-section" class="dashboard-section">
+                <h2><i class="fas fa-users"></i> Manage Users</h2>
+                <p>View, add, and manage user accounts in ZAYNO.</p>
+                <div class="placeholder"><a href="AdminManageUsers.php"> management interface will go here.</a></div>
+            </section>
+
+            <section id="reviews-section" class="dashboard-section">
+                <h2><i class="fas fa-star"></i> Review Views</h2>
+                <p>Monitor and manage customer product reviews and ratings. Approve, reject, or respond to reviews.</p>
+                <div class="placeholder"><a href="SecondBanner_view_reviews.php">Review management interface will go here .</a></div>
+            </section>
+
+            <section id="orders-section" class="dashboard-section">
+                <h2><i class="fas fa-shopping-cart"></i> View Orders</h2>
+                <p>Browse and manage all incoming customer orders.</p>
+                <div class="placeholder"><a href="firstBanner_admin_orders.php">Global Discounted Order management interface will go here.</a></div>
+                <div class="placeholder"><a href="SecondBanner_view_orders.php">MORE DEALS Discounted Order management interface will go here.</a></div>
+                <div class="placeholder"><a href="LadiesCollection/LadiesAdmin.html">Ladies Products Order management interface will go here.</a></div>
+            </section>
+            <section id="users-section" class="dashboard-section">
+                <h2><i class="fas fa-shopping-review"></i> Manage Users</h2>
+                <p>View Reviews in ZAYNO.</p>
+                <div class="placeholder"><a href="SecondBanner_view_reviews.php"> View interface will go here.</a></div>
+            </section>
+        </main>
+
+        <footer class="dashboard-footer">
+           <p>&copy; 2025 [ZAYNO] All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://kit.fontawesome.com/your_fontawesome_kit_id.js" crossorigin="anonymous"></script>
+    <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const navItems = document.querySelectorAll('.dashboard-nav a');
+    const sections = document.querySelectorAll('.dashboard-section');
+    /*const adminUsernameElement = document.getElementById('admin-username');
+
+    // Get admin username from session (assuming it's stored)
+    fetch('get_admin_username.php') // Create this PHP file (see below)
+        .then(response => response.text())
+        .then(username => {
+            if (username) {
+                adminUsernameElement.textContent = username;
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching admin username:', error);
+        });*/
+
+    // Function to show a specific section and hide others
+    function showSection(sectionId) {
+        sections.forEach(section => {
+            section.classList.remove('active');
+        });
+        const targetSection = document.getElementById(sectionId + '-section');
+        if (targetSection) {
+            targetSection.classList.add('active');
+        }
+    }
+
+    // Add event listeners to navigation items
+    navItems.forEach(item => {
+        item.addEventListener('click', function(event) {
+            event.preventDefault();
+            const sectionId = this.getAttribute('data-section');
+            showSection(sectionId);
+        });
+    });
+
+    // Initially show the products section
+    showSection('products');
+});
+    </script>
+    </body>
+</html>
